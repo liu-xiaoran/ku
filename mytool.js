@@ -22,7 +22,8 @@ getQueryString("cid")&&setCookie("channelid",window.cid,3);
 
 
 
-//新更改的
+//新更改的    落地页转走时要带上信息，不然不能验证
+原网址+window.cid
 var getCookie = function(name) {
 			    var str = "; " + document.cookie + "; ",
 			        index = str.indexOf("; " + name + "=");

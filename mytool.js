@@ -19,3 +19,18 @@ var setCookie = function(c_name, value, expiredays) {
 
 window.cid = getQueryString("cid")?getQueryString("cid"):"999920170508100021";
 getQueryString("cid")&&setCookie("channelid",window.cid,3);
+
+
+
+//新更改的
+var getCookie = function(name) {
+			    var str = "; " + document.cookie + "; ",
+			        index = str.indexOf("; " + name + "=");
+			    if (index != -1) {
+			        var tempStr = str.substring(index + name.length + 3, str.length),
+			            target = tempStr.substring(0, tempStr.indexOf("; "));
+
+			        return decodeURIComponent(target);
+			    }
+			    return null;
+			}

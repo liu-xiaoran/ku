@@ -35,3 +35,12 @@ var getCookie = function(name) {
 			    }
 			    return null;
 			}
+
+
+
+//解决获取焦点出现键盘时悬浮框上升的bug
+		$("input[type='text'],input[type='password'],input[type='number']").focus(function() {
+		    $(".footer").css("position","absolute")
+		}).blur(function() {
+			$(".footer").css("position","fixed")
+		})

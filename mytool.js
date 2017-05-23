@@ -44,3 +44,20 @@ var getCookie = function(name) {
 		}).blur(function() {
 			$(".footer").css("position","fixed")
 		})
+		
+//ajax封装
+		function customajax(url, data, Fn) {
+			$.ajax({
+				type: 'POST',
+				url: url,
+				data: data,
+				dataType: 'json',
+				contentType: 'application/json',
+				success: function(data) {
+					Fn(data);
+				},
+				error: function(xhr, type) {
+					console.log('xhr=' + JSON.stringify(xhr) + 'type=' + type);
+				}
+			});
+		}

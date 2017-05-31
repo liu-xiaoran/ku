@@ -1,0 +1,58 @@
+scrat release             构建
+scrat server start        调试目录
+http://127.0.0.1:5000     预览效果
+scrat server open         查看调试目录
+scrat release -wL         新CMD输入，自动刷新功能
+
+本地地址为：
+http://localhost:5000/public/c/landingpage-pc/0.0.1
+
+PC宽度暂定为1024
+
+obj为 Registers
+
+http://106.14.236.8/mimosaui/index.html#mail
+
+zyadmin
+
+zy123456
+
+106.14.236.163
+
+106.14.236.168
+
+106.14.236.8     开发调试
+
+106.14.236.121   
+
+106.14.19.131    测试
+
+106.14.34.155    测试
+
+106.14.25.126    测试
+
+106.14.26.205    数据库工具
+
+http://192.168.4.220:8080/ZYManager/api/api-docs#!/PlatforMail/getPlatformMail
+
+http://192.168.4.220:8080/ZYManager/api/swagger.json
+
+
+`oid` varchar(32) NOT NULL,
+  `userOid` varchar(32) DEFAULT NULL COMMENT '所属用户',
+  `phone` varchar(32) DEFAULT NULL COMMENT '手机号码',
+  `mailType` varchar(32) DEFAULT NULL COMMENT '类型  all全站信息   person个人信息',
+  `mesType` varchar(32) DEFAULT NULL COMMENT '内容类型  all全站信息  person个人信息',
+  `mesTitle` varchar(32) DEFAULT NULL COMMENT '标题',
+  `mesContent` text COMMENT '内容',
+  `isRead` varchar(32) DEFAULT NULL COMMENT '是否已读 is是 no否',
+  `status` varchar(32) DEFAULT NULL COMMENT '状态  toApprove待审核  pass已发送  refused已驳回  delete已删除',
+  `requester` varchar(32) DEFAULT NULL COMMENT '申请人',
+  `approver` varchar(32) DEFAULT NULL COMMENT '审核人',
+  `approveRemark` varchar(256) DEFAULT NULL COMMENT '审核意见',
+  `readUserNote` text COMMENT '已读用户记录',
+  `remark` varchar(256) DEFAULT NULL,
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+之后的：

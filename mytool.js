@@ -61,3 +61,9 @@ var getCookie = function(name) {
 				}
 			});
 		}
+		
+// 毫秒时间戳转换为时间 
+vm.turnDate = function(tm){ 
+   	var tt=new Date(tm).toLocaleString(); 
+    return tt; 
+}

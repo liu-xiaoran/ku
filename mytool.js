@@ -3,7 +3,6 @@ $(".sidebarTops").off().on("click",function(){
     $('html, body').stop().animate({'scrollTop':'0px'},300);
 })
 
-
 function getQueryString(name) {
 			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 			var r = window.location.search.substr(1).match(reg);
@@ -19,8 +18,6 @@ var setCookie = function(c_name, value, expiredays) {
 
 window.cid = getQueryString("cid")?getQueryString("cid"):"999920170508100021";
 getQueryString("cid")&&setCookie("channelid",window.cid,3);
-
-
 
 //新更改的    落地页转走时要带上信息，不然不能验证
 原网址+window.cid

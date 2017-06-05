@@ -31,9 +31,7 @@ var getCookie = function(name) {
 			        return decodeURIComponent(target);
 			    }
 			    return null;
-			}
-
-
+		}
 
 //解决获取焦点出现键盘时悬浮框上升的bug
 		$("input[type='text'],input[type='password'],input[type='number']").focus(function() {

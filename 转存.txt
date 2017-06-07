@@ -1,0 +1,29 @@
+PC和h5落地页文件中：
+下载落地页修改  downLoadInvite  （ok）
+PC新手注册页  sjzc_landingpage.html （ok）
+邀请好友新增落地页   invite    （OK）
+新人红包通用  newer  xrhb
+
+
+PC版活动内页中：
+加息活动 
+
+
+活期理财页面（hqlc），无UI图活期理财页面（hqlc），无UI图。页面 https://www.zhangyuelicai.com/h5/hqlc/index.html
+
+
+收到的是：
+
+{
+    "code": 9998,
+    "data": "",
+    "message": "标题,内容,跳转页面,客户端类型为必填项",
+    "resTime": "20170614155250390",
+    "serverMsg": "com.jinzhuan.zy.system.exception.ServiceException"
+}<ns1: XMLFaultxmlns: ns1="http://cxf.apache.org/bindings/xformat"><ns1: faultstringxmlns: ns1="http://cxf.apache.org/bindings/xformat">com.jinzhuan.zy.system.exception.ServiceException: 标题,
+内容,
+跳转页面,
+客户端类型为必填项</ns1: faultstring></ns1: XMLFault>
+
+
+

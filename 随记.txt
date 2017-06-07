@@ -1,13 +1,14 @@
-scrat release             ¹¹½¨
-scrat server start        µ÷ÊÔÄ¿Â¼
-http://127.0.0.1:5000     Ô¤ÀÀÐ§¹û
-scrat server open         ²é¿´µ÷ÊÔÄ¿Â¼
-scrat release -wL         ÐÂCMDÊäÈë£¬×Ô¶¯Ë¢ÐÂ¹¦ÄÜ
+<meta charset="UTF-8">
+scrat release             ï¿½ï¿½ï¿½ï¿½
+scrat server start        ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
+http://127.0.0.1:5000     Ô¤ï¿½ï¿½Ð§ï¿½ï¿½
+scrat server open         ï¿½é¿´ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
+scrat release -wL         ï¿½ï¿½CMDï¿½ï¿½ï¿½ë£¬ï¿½Ô¶ï¿½Ë¢ï¿½Â¹ï¿½ï¿½ï¿½
 
-±¾µØµØÖ·Îª£º
+ï¿½ï¿½ï¿½Øµï¿½Ö·Îªï¿½ï¿½
 http://localhost:5000/public/c/landingpage-pc/0.0.1
 
-PC¿í¶ÈÔÝ¶¨Îª1024
+PCï¿½ï¿½ï¿½ï¿½Ý¶ï¿½Îª1024
 
 objÎª Registers
 
@@ -21,17 +22,17 @@ zy123456
 
 106.14.236.168
 
-106.14.236.8     ¿ª·¢µ÷ÊÔ
+106.14.236.8     ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 106.14.236.121   
 
-106.14.19.131    ²âÊÔ
+106.14.19.131    ï¿½ï¿½ï¿½ï¿½
 
-106.14.34.155    ²âÊÔ
+106.14.34.155    ï¿½ï¿½ï¿½ï¿½
 
-106.14.25.126    ²âÊÔ
+106.14.25.126    ï¿½ï¿½ï¿½ï¿½
 
-106.14.26.205    Êý¾Ý¿â¹¤¾ß
+106.14.26.205    ï¿½ï¿½Ý¿â¹¤ï¿½ï¿½
 
 http://192.168.4.220:8080/ZYManager/api/api-docs#!/PlatforMail/getPlatformMail
 
@@ -39,20 +40,20 @@ http://192.168.4.220:8080/ZYManager/api/swagger.json
 
 
 `oid` varchar(32) NOT NULL,
-  `userOid` varchar(32) DEFAULT NULL COMMENT 'ËùÊôÓÃ»§',
-  `phone` varchar(32) DEFAULT NULL COMMENT 'ÊÖ»úºÅÂë',
-  `mailType` varchar(32) DEFAULT NULL COMMENT 'ÀàÐÍ  allÈ«Õ¾ÐÅÏ¢   person¸öÈËÐÅÏ¢',
-  `mesType` varchar(32) DEFAULT NULL COMMENT 'ÄÚÈÝÀàÐÍ  allÈ«Õ¾ÐÅÏ¢  person¸öÈËÐÅÏ¢',
-  `mesTitle` varchar(32) DEFAULT NULL COMMENT '±êÌâ',
-  `mesContent` text COMMENT 'ÄÚÈÝ',
-  `isRead` varchar(32) DEFAULT NULL COMMENT 'ÊÇ·ñÒÑ¶Á isÊÇ no·ñ',
-  `status` varchar(32) DEFAULT NULL COMMENT '×´Ì¬  toApprove´ýÉóºË  passÒÑ·¢ËÍ  refusedÒÑ²µ»Ø  deleteÒÑÉ¾³ý',
-  `requester` varchar(32) DEFAULT NULL COMMENT 'ÉêÇëÈË',
-  `approver` varchar(32) DEFAULT NULL COMMENT 'ÉóºËÈË',
-  `approveRemark` varchar(256) DEFAULT NULL COMMENT 'ÉóºËÒâ¼û',
-  `readUserNote` text COMMENT 'ÒÑ¶ÁÓÃ»§¼ÇÂ¼',
+  `userOid` varchar(32) DEFAULT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½',
+  `phone` varchar(32) DEFAULT NULL COMMENT 'ï¿½Ö»ï¿½ï¿½ï¿½ï¿½',
+  `mailType` varchar(32) DEFAULT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½  allÈ«Õ¾ï¿½ï¿½Ï¢   personï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢',
+  `mesType` varchar(32) DEFAULT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  allÈ«Õ¾ï¿½ï¿½Ï¢  personï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢',
+  `mesTitle` varchar(32) DEFAULT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½',
+  `mesContent` text COMMENT 'ï¿½ï¿½ï¿½ï¿½',
+  `isRead` varchar(32) DEFAULT NULL COMMENT 'ï¿½Ç·ï¿½ï¿½Ñ¶ï¿½ isï¿½ï¿½ noï¿½ï¿½',
+  `status` varchar(32) DEFAULT NULL COMMENT '×´Ì¬  toApproveï¿½ï¿½ï¿½ï¿½ï¿½  passï¿½Ñ·ï¿½ï¿½ï¿½  refusedï¿½Ñ²ï¿½ï¿½ï¿½  deleteï¿½ï¿½É¾ï¿½ï¿½',
+  `requester` varchar(32) DEFAULT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+  `approver` varchar(32) DEFAULT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½',
+  `approveRemark` varchar(256) DEFAULT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+  `readUserNote` text COMMENT 'ï¿½Ñ¶ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Â¼',
   `remark` varchar(256) DEFAULT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
-Ö®ºóµÄ£º
+Ö®ï¿½ï¿½Ä£ï¿½

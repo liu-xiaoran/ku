@@ -128,3 +128,26 @@ vm.tableParams5 = new ngTableParams({
 
 	}
 });
+
+//获取当前月份的日期
+var GetDateStr=function(date) {
+    var dd = new Date(date);
+    var y = dd.getFullYear();
+    var m = dd.getMonth() + 1;//获取当前月份的日期
+    var d = dd.getDate();
+    m=m<10?"0"+m:m;
+    d=d<10?"0"+d:d;
+    return y + "-" + m + "-" + d;
+}
+//添加到期时间变为还本付息日函数
+function GetDateStr(date, AddDayCount) {
+    var dd = new Date(date);
+    dd.setDate(dd.getDate() + AddDayCount);//获取AddDayCount天后的日期
+    var y = dd.getFullYear();
+    var m = dd.getMonth() + 1;//获取当前月份的日期
+    var d = dd.getDate();
+    m=m<10?"0"+m:m;
+    d=d<10?"0"+d:d;
+    return y + "-" + m + "-" + d;
+}
+		

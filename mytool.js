@@ -139,6 +139,9 @@ var GetDateStr=function(date) {
     d=d<10?"0"+d:d;
     return y + "-" + m + "-" + d;
 }
+
+//不同担心不同页面函数重名
+
 //添加到期时间变为还本付息日函数
 function GetDateStr(date, AddDayCount) {
     var dd = new Date(date);
@@ -151,3 +154,4 @@ function GetDateStr(date, AddDayCount) {
     return y + "-" + m + "-" + d;
 }
 		
+

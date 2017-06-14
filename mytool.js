@@ -154,8 +154,18 @@ function GetDateStr(date, AddDayCount) {
     return y + "-" + m + "-" + d;
 }
 		
-let addDay = 1;
-let time = new Date();
-if (time.getDay() >= 5) {
-    addDay = 8 - time.getDay()
-}
+//预计提现时间
+	withdrawTimes:function(){
+		var addDay = 1;
+		var time = new Date();
+		if (time.getDay() >= 5) {
+		    addDay = 8 - time.getDay()
+		}
+		time.setDate(time.getDate()+addDay)
+		var month = time.getMonth()+1
+		if(month<10){
+			month = "0"+month
+		}
+		$("#withdrawTimes").html(month+"-"+time.getDate())
+		
+	},

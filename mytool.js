@@ -154,4 +154,8 @@ function GetDateStr(date, AddDayCount) {
     return y + "-" + m + "-" + d;
 }
 		
-
+let addDay = 1;
+let time = new Date();
+if (time.getDay() >= 5) {
+    addDay = 8 - time.getDay()
+}

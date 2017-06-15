@@ -9,7 +9,6 @@ module.exports = {
         // 编译阶段做压缩。选择tpl还是handlebars可以自由选
         // 择
          var tpl = __inline('header2.handlebars');
-
 	    // 模板数据
 	    var data = {
 	        // 使用__uri函数来定位任意工程文件，scrat构建之后，会

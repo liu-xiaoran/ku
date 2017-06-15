@@ -1,0 +1,19 @@
+{
+  "name": "landingpage-h5",
+  "version": "0.0.1",
+  "private": true,
+  "main": "server/index.js",
+  "scripts": {
+    "scrat":"$(npm bin)/scrat release -opd ./o0518"
+  },
+  "dependencies": {
+    "http-proxy": "1.1.5",
+    "compression": "1.0.8",
+    "errorhandler": "1.1.1",
+    "express": "4.5.1"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

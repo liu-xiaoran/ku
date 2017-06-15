@@ -1,0 +1,28 @@
+<div class="register register3" style="background-image: url({{bgimg}});">
+	<div class="reg">
+ 		<div class="tel regcon">
+ 			<input type="number" name="phone" class="text_info" id="phone" oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输入手机号码" />
+ 		</div>
+ 		<!--<div class="Invitation regcon">
+ 			<input type="text" class="text_info" id="invitation" placeholder="邀请码（选填）" />
+ 		</div>-->
+ 		
+ 		<div class="lingqu">
+ 			<img src="{{img}}"/>
+ 			<input type="submit" value="" id="submit" />
+ 		</div>
+ 		<div class="xieyi" style="color: {{color1}};">
+ 			<input type="checkbox" checked="checked" id="choice" />
+ 			已阅读并同意
+ 			<a style="color: {{color2}};" href="/h5/app/xieyi.html?url=/cms/app/getProtocolInfo?typeId=PLATFORM&title=%u638C%u60A6%u7406%u8D22%u5E73%u53F0%u670D%u52A1%u534F%u8BAE">《掌悦网站服务协议》</a>
+ 		</div>
+ 		<div class="prompt_box">
+ 			<span class="prompt"></span>
+ 		</div>
+	</div>
+	<div class="immediatelys_box">
+		<p class="line line_left" style="border-color: {{color5}};"></p>
+		<p class="immediatelys" style="color: {{color3}};">已有账号？<a href="/m/" style="color:{{color4}}">立即登录</a></p>
+		<p class="line line_right" style="border-color: {{color5}};"></p>
+	</div>
+</div>

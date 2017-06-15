@@ -1,0 +1,35 @@
+.shade_box {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+.shade {
+	display: none;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .7);
+}
+.jiantou {
+	width: 2.96rem;
+	height: 2.93rem;
+	position: absolute;
+	top: .24rem;
+	right: .75rem;
+}
+.dianji {
+	padding: 3.41rem 0 0 1.36rem;
+}
+.dianji li {
+	color: #fff;
+	font-size: .49rem;
+	margin-bottom: 1.23rem;
+}
+
+.ovfHiden {
+	overflow-y: hidden;
+	/*height: 100%;*/
+}

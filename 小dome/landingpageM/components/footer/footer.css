@@ -1,0 +1,72 @@
+/*.footer {
+    font-size: 14px;
+    line-height: 14px;
+    font-family: Arial, Verdana, sans-serif;
+    font-weight: bold;
+    color: #666;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 820px) {
+    .footer {
+        font-size: 12px;
+        -webkit-transform: scale(0.8, 0.8);
+    }
+}*/
+
+.footer {
+	width: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 100;
+	display: none;
+}
+.footer img {
+	width: 100%;
+}
+.footer .downLoad {
+	width: 1.92rem;
+	position: absolute;
+	right: 4%;
+	top: .15rem;
+}
+.suspend_left p {
+	margin-left: .15rem;
+	font-size: .3rem;
+	color: #fff;
+	float: left;
+	height: 1rem;
+	line-height: 1rem;
+}
+.suspend_right {
+	float: right;
+	width: 1.92rem;
+}
+.suspend_right img {
+	width: 100%;
+	margin-top: .15rem;
+}
+
+.fadeIn{
+	animation: fadeIn .5s;
+	-webkit-animation: fadeIn .5s;
+	-moz-animation fadeIn .5s;
+	-o-animation fadeIn .5s;
+	-ms-animation fadeIn .5s;
+}
+.fadeOut{
+	animation: fadeOut .5s;
+	-webkit-animation: fadeOut .5s;
+	-moz-animation fadeOut .5s;
+	-o-animation fadeOut .5s;
+	-ms-animation fadeOut .5s;
+}
+@keyframes fadeIn{
+	from{opacity: 0;}
+	to{opacity: 1;}
+}
+@keyframes fadeOut{
+	from{opacity: 1;}
+	to{opacity: 0;}
+}

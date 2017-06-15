@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" type="text/css" href="lib/reset/reset.css">
+    <title>掌悦理财</title>
+</head>
+
+<body>
+    <script src="lib/zepto_1.2.0_min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/lib.js"></script>
+    
+    <script>
+    window.remoteConfig = {
+        module: [
+            "banner",
+            // "btns",
+            "content1",
+            // "content2",
+            // "downs",
+            "footer",
+            "header1",
+            // "header2",
+            "pages/index",
+            // "register1",
+            "register2",
+            // "register3",
+            // "register4",
+            "shade",
+            // "tab",
+            "version"
+        ],
+        banner_src: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/banner/img/banner.png",
+        btns_src: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/btns/img/button3.png",
+        content1_src: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/content1/img/content.png",
+        content2_src1: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/content2/img/hqty.png",
+        content2_src2: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/content2/img/xszx.png",
+        downLoad_src1: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/downLoad/img/bg.png",
+        downLoad_src2: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/downLoad/img/download.png",
+        downs_src1: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/downs/img/buttons.png",
+        downs_src2: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/downs/img/btn9.png",
+        footer_src1: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/footer/img/footer.png",
+        footer_src2: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/footer/img/button2.png",
+        header1_src1: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/header1/img/header.png",
+        header1_src2: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/header1/img/button.png",
+        header2_src: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/header2/img/header.png",
+        header2_bgcolor: "fd7752",
+        register1_bgimg1: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/register1/img/regbg.png",
+        register1_bgimg2: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/register1/img/button4.png",
+        register1_bgcolor: "fff560",
+        register1_color1: "#fff",
+        register1_color2: "#fff",
+        register1_color3: "#fff",
+        register1_color4: "#fff",
+        register1_color5: "#ffde3e",
+        register2_bgimg1: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/register2/img/regbg.png",
+        register2_bgimg2: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/register2/img/btn4.png",
+        register2_src: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/register2/img/btn3.png",
+        register2_color1: "#5b3100",
+        register2_color2: "#fff",
+        register2_color3: "#ffdda0",
+        register2_color4: "#ffdda0",
+        register2_color5: "#fff600",
+        register2_color6: "#ffb68a",
+        register3_bgimg: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/register3/img/regbg.png",
+        register3_src: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/register3/img/btn3.png",
+        register3_color1: "#333",
+        register3_color2: "#fff",
+        register3_color3: "#333",
+        register3_color4: "#ff0000",
+        register3_color5: "#333",
+        register4_bgimg: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/register4/img/regbg.png",
+        register4_src: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/register4/img/btns.png",
+        tab_src1: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/tab/img/btn5.png",
+        tab_src2: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/tab/img/btn6.png",
+        tab_src3: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/tab/img/btn7.png",
+        tab_src4: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/tab/img/btn8.png",
+        tab_bgcolor: "rgba(255,255,255,.7)",
+        version_src: "http://106.14.236.8/h5/libs/landingpage-h5/0.0.1/version/img/text.png",
+        text_title:"",
+        text_st:"",
+        text_sc:""
+    };
+    window.config = window.remoteConfig.module;
+    require.config(__FRAMEWORK_CONFIG__);
+    require.async('pages/index', function(site) {
+        // 渲染页面骨架
+        site.render(document.body);
+    });
+    </script>
+</body>
+
+</html>

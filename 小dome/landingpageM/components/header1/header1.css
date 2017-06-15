@@ -1,0 +1,19 @@
+.header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+.entry {
+	position: absolute;
+	width: 1.92rem;
+	right: 4%;
+	top: .16rem;height:.71rem;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.header img {
+	width: 100%;
+}

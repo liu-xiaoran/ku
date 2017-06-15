@@ -1,0 +1,18 @@
+.down {
+	width: 60%;
+	padding: 0 20%;
+/*	margin-bottom: .29rem;*/
+}
+.downs {
+	width: 72%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	display: none;
+	z-index: 50;
+	background: rgba(255,255,255,.7);
+	padding: .08rem 1.05rem 0 1.06rem;
+}
+.down img,.downs img {
+	width: 100%;
+}

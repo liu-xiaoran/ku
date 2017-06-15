@@ -1,0 +1,24 @@
+.headers {
+	width: 100%;
+	position: relative;
+}
+.headers img {
+	width: 100%;
+}
+.entrys {
+	position: absolute;
+	right: .1rem;
+	top: .15rem;
+	display: block;
+	width: .95rem;
+	height: .42rem;
+	font-size: .25rem;
+	color: #fff;
+	/*background: #fd7752;*/
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	text-align: center;
+	line-height: .43rem;
+}

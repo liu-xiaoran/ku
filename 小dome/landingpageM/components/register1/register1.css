@@ -1,0 +1,134 @@
+.register1 {
+	background-color:#fff;
+	overflow: hidden;
+	background-repeat:no-repeat;
+	/*background-position:left bottom;*/
+	background-size: 100% auto;
+}
+.register1 .reg {
+	width: 86%;
+	margin: 0 auto;
+	position: relative;
+	padding-top: .13rem;
+}
+.register1 .reg input {
+	border: none;
+	outline: none;
+}
+.register1 .regcon {
+	width: 86%;
+	height: 1rem;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	-o-border-radius: 100px;
+	background: #fff;
+	margin-bottom: .4rem;
+	padding-left: 14%;
+	position: relative;
+    background: #fff no-repeat .4rem center;
+}
+.register1 .tel {
+	background-image: url(img/icon1.png);
+	background-size: .28rem;
+}
+.register1 .pwd {
+	background-image: url(img/icon2.png);
+	background-size: .28rem;
+}
+.register1 .identify_info {
+	background-image: url(img/icon4.png);
+	background-size: .28rem;
+}
+.register1 .text_info {
+	width: 85%;
+	height: 100%;
+	font-size: .3rem;
+	float: left;
+}
+.register1 .identify_box:after {
+	content: '';
+	display: block;
+	height: 0;
+	clear: both;
+	overflow: hidden;
+}
+.register1 .identify_box .regcon {
+	width: 48%;
+	float: left;
+}
+.register1 #get_identify {
+	width: 35%;
+	height: 1rem;
+	float: right;
+	padding-left: 0;
+	margin: 0;
+	font-size: .3rem;
+	color: #ff5357;
+	/*background: #fff560;*/
+	font-family: "微软雅黑";
+}
+.register1 .xieyi {
+	text-align: center;
+	font-size: .24rem;
+	margin: .04rem 0 .24rem 0;
+	color: #fff;
+}
+.register1 .xieyi a {
+	color: #fff;
+}
+.register1 #choice {
+	vertical-align:middle;
+}
+.register1 .lingqu {
+	width: 100%;
+	height: 1.12rem;
+	/*background: url(img/button4.png) no-repeat center;*/
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size: contain;
+}
+.register1 #submit {
+	width: 100%;
+	height: 100%;
+	display: block;
+	background: none;
+}
+.register1 .signBox {
+	margin: .16rem .67rem 0 .67rem;
+	border-top: 1px solid #ff878a;
+	padding: .09rem 0 .6rem 0;
+}
+.register1 .immediately_entry {
+	width: 100%;
+	text-align: center;
+	font-size: .24rem;
+	color: #fff;
+	margin-top: .22rem;
+}
+.register1 .immediately_entry a {
+	color: #ffde3e;
+	font-weight: bold;
+	margin-left: .08rem;
+}
+.register1 .prompt_box {
+	display: none;
+	width: 100%;
+	overflow: hidden;
+	position: absolute;
+	top: 20%;
+	left: 0;
+	z-index: 10;
+	text-align: center;
+}
+.register1 .prompt {
+	display: inline-block;
+	padding: .35rem .66rem .35rem .59rem;
+	font-size: .27rem;
+	color: #fff;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	-o-border-radius: 100px;
+	background: rgba(0,0,0,.6);
+}

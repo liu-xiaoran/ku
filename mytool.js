@@ -64,6 +64,8 @@ vm.turnDate = function(tm) {
 	var tt = new Date(tm).toLocaleString();
 	return tt;
 }
+//其实就是 .toLocaleString() 转换本地时间而已
+
 // 添加post例证。落地页管理工具中的
 vm.tableParams5 = new ngTableParams({
 	page: 1, // show first page

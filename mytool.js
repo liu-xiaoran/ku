@@ -172,3 +172,19 @@ function GetDateStr(date, AddDayCount) {
 		
 	}
 	
+
+//滑动时，touchend阻止冒泡
+var locked = false;
+window.addEventListener('touchmove', function(ev){
+    locked || (locked = true, window.addEventListener('touchend', stopTouchendPropagation, true));
+}, true);
+function stopTouchendPropagation(e){
+	var e = window.event||event;
+    if(document.all){  //只有ie识别
+        e.cancelBubble=true;
+    }else{
+        e.stopPropagation();
+    }
+    window.removeEventListener('touchend', stopTouchendPropagation, true);
+    locked = false;
+}

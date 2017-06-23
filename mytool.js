@@ -188,3 +188,6 @@ function stopTouchendPropagation(e){
     window.removeEventListener('touchend', stopTouchendPropagation, true);
     locked = false;
 }
+
+
+ return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');    

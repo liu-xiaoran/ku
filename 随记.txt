@@ -1,61 +1,68 @@
-scrat release             ����
-scrat server start        ����Ŀ¼
-http://127.0.0.1:5000     Ԥ��Ч��
-scrat server open         �鿴����Ŀ¼
-scrat release -wL         ��CMD���룬�Զ�ˢ�¹���
+写H5页面一直写的有点随意,只是保证了页面在各个屏幕下显示良好,却没有保证到在各个屏幕下是等比例放大或者缩小.这些天在写一些页面,试着看看能不能写出等比例放大缩小的页面,发现不容易啊,在网上找了一些文章,整理如下:
 
-���ص�ַΪ��
-http://localhost:5000/public/c/landingpage-pc/0.0.1
+(只说方案,具体实现看大神的文章)
 
-PC�����ݶ�Ϊ1024
+方法一:用流式布局,px做css单位,在大屏小屏自动适应,我之前一直用这种方法,适合于简单的页面,比如说列表页,写法比较简单,不用考虑太多
 
-objΪ Registers
+缺点是:
 
-http://106.14.236.8/mimosaui/index.html#mail
+1.页面虽然展示正常,却不是等比缩放,在高清屏上难免看起来怪怪的(px换算统一除以2,在dpr是2.5或者3上看起来偏小)
 
-zyadmin
+方法二:用rem布局.
 
-zy123456
+rem:css单位,相对于网站根元素,即根据html元素的font-size来计算大小,比如说html的font-size大小为50px,一个div的width为1rem,则div的width大小为50px,所以在不同屏上,只要我们动态的算出html的大小,则可起到一改俱改的效果,实现等比例放大缩小,因为html的font-size是等比算出来的.
 
-106.14.236.163
+这里有一个需要注意的,用rem布局,可以起到等比例放大缩小的效果,但有时我们难免要对某个元素在不同屏上做一些特定的处理,我们马上就想起了媒体查询,是的,你如果单纯用rem布局,没有去动态修改viewport的缩放值(后面讲的淘宝的方案是动态修改viewport的缩放值),那是可以用媒体查询的,那么除了用媒体查询还有没有其他方法呢?答案是有的,根据dpr,我们在不同屏动态算出html的font-size时,顺便把dpr算出来加到html里面去,这样我们可以通过css去控制,
 
-106.14.236.168
+如下:
 
-106.14.236.8     ��������
+<html lang="en" data-dpr="1" style="font-size: 32px;">
+然后,css里可以这样写:
 
-106.14.236.121   
+[data-dpr="1"] div{ //处理代码 }
+这就是我们经常在h5页面看到,为什么用rem布局还要动态设置这个data-dpr的原因,可以给css处理不同dpr留下钩子.用rem布局做css单位,很多时候我们元素div的font-size是不需要用rem的,我们还是想用px给文字设置大小,这个时候这个钩子就显得很 有用了.
 
-106.14.19.131    ����
+这里涉及到怎么把设计稿的px换算成rem,网上有很多详细的教程,链接在后面.
 
-106.14.34.155    ����
+方法三:淘宝的lib-flexible方案
 
-106.14.25.126    ����
+淘宝的这个方案,是rem布局+viewport设置(iOS),就是在iOS系统上,动态的设置viewport,如下:
 
-106.14.26.205    ���ݿ⹤��
+iphone5
 
-http://192.168.4.220:8080/ZYManager/api/api-docs#!/PlatforMail/getPlatformMail
+<meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no">
+iphone6 plus
 
-http://106.14.25.126/ZYManager/api/swagger.json
+<meta name="viewport" content="initial-scale=0.3333333333333333, maximum-scale=0.3333333333333333, minimum-scale=0.3333333333333333, user-scalable=no">
+在iOS上,这种方案真的不错,解决了很多问题,1px的问题也解决了,具体实现方案后面放链接.
 
+但是在安卓上呢?淘宝的这种方案在安卓是统一设置viewport的缩放为1的,因为安卓机上这个值设置了不一定有效,比如说0.5或者0.333,安卓机上可能都会解析为1
 
-`oid` varchar(32) NOT NULL,
-  `userOid` varchar(32) DEFAULT NULL COMMENT '�����û�',
-  `phone` varchar(32) DEFAULT NULL COMMENT '�ֻ�����',
-  `mailType` varchar(32) DEFAULT NULL COMMENT '����  allȫվ��Ϣ   person������Ϣ',
-  `mesType` varchar(32) DEFAULT NULL COMMENT '��������  allȫվ��Ϣ  person������Ϣ',
-  `mesTitle` varchar(32) DEFAULT NULL COMMENT '����',
-  `mesContent` text COMMENT '����',
-  `isRead` varchar(32) DEFAULT NULL COMMENT '�Ƿ��Ѷ� is�� no��',
-  `status` varchar(32) DEFAULT NULL COMMENT '״̬  toApprove�����  pass�ѷ���  refused�Ѳ���  delete��ɾ��',
-  `requester` varchar(32) DEFAULT NULL COMMENT '������',
-  `approver` varchar(32) DEFAULT NULL COMMENT '�����',
-  `approveRemark` varchar(256) DEFAULT NULL COMMENT '������',
-  `readUserNote` text COMMENT '�Ѷ��û���¼',
-  `remark` varchar(256) DEFAULT NULL,
-  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+这个时候怎么处理呢?我们可能会想,反正安卓上dpr都是1,而苹果上dpr现在至少都是2,那么我们可以根据这个来做区分,
 
-֮��ģ�
+[data-dpr="1"] div{ //处理代码 }
+这样确实可以做区分,但是有一个问题我们没考虑到,就是安卓机上也有高清屏的,这么说,我们在dpr=1设置了1px,在ios上自动缩放,可能显示0.5或者0.333,但是在安卓机上呢?在大部分dpr等于1上显示1px,但是在那些高清安卓机上呢?显示的是2px甚至3px,这个时候应该怎么处理?
 
+理一下:这个时候的问题是,ios上都没问题了,1px也很细,但是安卓上,1px还是很粗,可以怎么办呢?大部分安卓机并没有像苹果那样的retina屏,所以在大部分情况下我们会对这个问题忽略,即ios上显示细的1px,而android上显示的相对粗一些.
 
-http://www.aliued.com/?p=3166
+当然,如果安卓上也一定要跟ios上显示一样细,也可以有其他方法,这个可以查看H5页面1PX的实现,有很多种方案,比如通过伪元素来缩放,背景实现,抑或是图片实现等等.网上有很多相关文章.
+
+用淘宝这个方案,有个注意点:
+
+用了淘宝这个方案,是不能用媒体查询的,比如说在ipone6上,body的宽度是750,在ipone6 plus上,body的宽度是1000+,这样我们应用媒体查询时,某个应用到1000+的样式,就会应用到ipone6 plus上(这情况不是bug,是正常的情况,跟viewport有关).
+
+如果我们不是用淘宝的这套方案,那么ipone6上,body的宽度是375,在ipone6 plus上,body的宽度是414,这样我们应用媒体查询时,某个应用到1000+的样式,就不会应用到ipone6 plus上.
+
+虽然不能用媒体查询,但是可以用dpr查询,如下
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5){ //处理代码 }
+我们也可以配合data-dpr来处理,如下:
+
+@media only screen and (-webkit-max-device-pixel-ratio:3){ [data-dpr="1"] body{ } }
+综上,我们总结下:
+
+1.当我们做的H5页面是单纯的web app,跟PC不是同一套时,即我们不需要用到媒体查询时,我们可以用淘宝这个方案,这个方案解决了ios上高清屏的问题,而且可以像我们平时写css代码一样,很方便,只是编写过程中就是换算有点麻烦(有工具);
+
+2.虽然说简单的页面我们可以用流式布局,但是能做到等比例放大缩小就更好了,所以建议H5用rem布局;
+
+3.安卓上如果一定要实现细的1px,需要使用其他方法来实现,比如上面说的伪元素缩放,背景实现,图片实现等等.

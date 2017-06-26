@@ -191,3 +191,7 @@ function stopTouchendPropagation(e){
 
 
  return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');    
+ 
+//一般的数据交互，提交时都转为JSON格式；
+  JSON.parse()      字符串转json对象
+  JSON.stringify()  json对象转字符串

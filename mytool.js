@@ -195,3 +195,15 @@ function stopTouchendPropagation(e){
 //一般的数据交互，提交时都转为JSON格式；
   JSON.parse()      字符串转json对象
   JSON.stringify()  json对象转字符串
+  
+
+
+//时间时间戳转换
+new Date("2017-08-05 00:00:00").getTime()
+new Date("2017-08-05").getTime()
+new Date("2017-08-05 00:00:00")
+new Date("2017-08-05")
+Date.parse( new Date("2017-08-05 00:00:00"))
+( new Date("2017-08-05 00:00:00")).valueOf()
+new Date(["2017","08","05 00:00:00"]).getTime()
+new Date('2015-09-14T09:30:16').getTime()

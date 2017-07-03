@@ -30,7 +30,7 @@ var channelOid = "ff8080815a8452de015a89408cee3682";
 var cid = "1";
 var ckey = "PC20170301";
 var cmsChannelOid = "000000005a83152e015a894d28b80000";
-var returnUrl="https://www.zhangyuelicai.com/"
+var returnUrl="https:///"
 
 GHutils.constant = {
 	userStatus: "userStatus",
@@ -39,128 +39,7 @@ GHutils.constant = {
 GHutils.userinfo = null;
 
 GHutils.API = {
-		//用户相关
-		USER: {
-			// doLogin: HOST + '/wfduc/client/user/login', //登录
-			doLogin: HOST + '/jzucapp/login', //we登录
-			doLogout: HOST + '/wfduc/client/user/logout', //登出
-			getstatus: HOST + '/wfduc/client/user/getstatus', //获取用户各种状态
-			checklock: HOST + '/wfduc/client/user/checklock', // --忘记登录密码，获取验证码之前，查看用户锁定状态
-			sendverifyv1:   HOST + '/wfduc/client/user/vericode', //注册、忘记密码发送验证码
-			checkinviedcd:  HOST + '/wfduc/client/user/checkinvtid', //验证邀请码是否正确
-			// register: HOST + '/wfduc/client/user/register', //注册
-			register: HOST + '/jzucapp/register', //we注册
-			setrealname:    HOST + '/wfduc/client/userext/add',	//添加实名认证信息
-			updatepassword: HOST + '/wfduc/client/user/forgetpwd', //重置登录密码
-			seq: HOST + '/wfduc/client/user/checkpwd', //修改登录密码时判断是否与之前密码相同
-			modifypassword: HOST + '/wfduc/client/user/resetpwd', //修改登录密码
-			dealpaypwd:     HOST + '/wfduc/client/user/setpaypwd',          //设置/修改支付密码
-			checkpaypwd:    HOST + '/wfduc/client/user/checkpaypwd',        //验证原支付密码
-            uptpaypwd:      HOST + '/wfduc/client/paypwd/uptpaypwd',       //标记支付密码状态   
-//			sendv:HOST + '/mimosa/client/bfsms/sendvc',//修改交易密码，忘记登录密码，验证码登录，注册，绑卡发送验证码
-			// sendv: HOST + '/wfduc/client/user/vericode', //修改交易密码，忘记登录密码，验证码登录，注册
-			sendv: HOST + '/wfduc/client/sms/sendvc', //修改交易密码，忘记登录密码，验证码登录，注册
-			// sendv: HOST + '/jzucapp/sendvc', //we修改交易密码，忘记登录密码，验证码登录，注册
-			verify: HOST + '/wfduc/client/sms/checkvc' ,//--修改交易密码，忘记登录密码，绑卡验证手机验证码是否正确
-			setpaypwd:      HOST + '/wfduc/client/user/setpaypwd',//设置/修改交易密码
-			messages:    HOST + '/cms/boot/push/pushQuery', 	//消息中心
-			isLogin: HOST + '/mimosa/client/investor/baseaccount/islogin',//判断用户登陆状态
-			depositverify:HOST + '/mimosa/client/investor/bankorder/apply/dapply',//充值发送验证码
-		},
-		//账户信息相关
-		ACCOUNT: {
-     		userinfo: HOST + '/wfduc/client/user/getuserinfo', //获取用户信息
-     		usermoneyinfo:  HOST + '/mimosa/client/investor/baseaccount/userinfo',   //用户资金相关信息  
-     		useraccount:    HOST + '/mimosa/client/investor/baseaccount/myhome', 	//我的首页
-     		accountdetail:  HOST + '/mimosa/client/investor/baseaccount/mycaptial', 	//我的资产详情
-     		monthDaysOfIncome: HOST + '/mimosa/client/investor/holdincome/mydatedetail',//查询客户一个月内活期定期收益
-     		monthPdtIncome:    HOST + '/mimosa/client/investor/holdincome/mydetail',        //查询客户一个月内具体产品收益
-//			deposit: HOST + '/mimosa/client/investor/bankorder/deposit',//充值
-			deposit: HOST + '/mimosa/client/investor/bankorder/apideposit',//充值
-			withdraw: HOST + '/mimosa/client/investor/bankorder/withdraw',//提现
-			getmyinvites:   HOST + '/mimosa/client/investor/baseaccount/referdetail/referlist', //我的邀请
-			prot0list: HOST + '/mimosa/client/holdconfirm/t0hold',	  						//我的活期列表	
-			prot0detail: HOST + '/mimosa/client/holdconfirm/mycurrdetail',				//我的活期产品详情
-			prot0qryincome: HOST + '/mimosa/client/investor/holdincome/qryincome',				//我的活期交易明细--收益
-			rewardinfo: HOST + '/mimosa/client/investor/holdapartincome/rewardinfo',				//活期奖励收益详情页
-			protnlist: HOST + '/mimosa/client/holdconfirm/tnhold',				//我的定期列表
-			proholdtndetail: HOST + '/mimosa/client/holdconfirm/holdregularinfo',				//我的定期持有中详情
-			proclosetndetail: HOST + '/mimosa/client/holdconfirm/closedregularinfo',				//我的定期已结清详情
-			gettradelist: HOST + '/mimosa/client/platform/investor/cashflow/query',	//交易明细
-//			depwdrawlist: HOST + '/mimosa/client/investor/bankorder/myquery',	//充提记录
-			depwdrawlist: HOST + '/mimosa/client/investor/bankorder/mng',	//充提记录
-			cityAll: HOST + '/mimosa/client/city/all',//大额提现查询开户行省市(all)
-			feedback:HOST+'/cms/app/addAdvice',         //意见反馈
-			coupon:    HOST + '/mimosa/client/tulip/myallcoupon', 	//我的卡券
-			couponreceive:    HOST + '/mimosa/client/investor/coupon/useredpacket', 	//领取红包
-			checkcoupon:    HOST + '/mimosa/client/investor/coupon/isredokay',		//判断红包领取成功
-			expproducts:    HOST + '/mimosa/product/client/expproducts', 	//获取体验金产品
-			prot0qrydetail: HOST + '/mimosa/client/tradeorder/mng',			//交易明细
-			valid4ele:	   HOST + '/wfduc/client/bank/bindcardapply',//新增银行卡
-			validagree:	   HOST + '/mimosa/boot/investor/bank/validagree',//新增银行卡
-			confirmAgree:  HOST + '/mimosa/boot/investor/bank/confirmAgree',//新增银行卡
-			bankadd:	   HOST + '/wfduc/client/bank/add',//新增银行卡
-			getSingleQuota:	 HOST + '/settlement/channelBank/getSingleQuota',//--获取银行卡单笔投资最高限额
-			getBankCard: HOST + '/settlement/channelBank/findBankInfoByCard',//通过银行卡号获取银行卡信息
-			getFriendEventInfo:    HOST + '/mimosa/client/tulip/getFriendEventInfo', 	//获取体验金金额及时间
-			getRegisterEventInfo:    HOST + '/mimosa/client/tulip/getRegisterEventInfo', 	//未登录状态下获取体验金金额
-			getActRuleInfo:    HOST + '/cms/app/getActRuleInfo' ,	//获取邀请规则
-			isbind:	   HOST + '/wfduc/client/bank/isbind',//判断银行卡是否已绑定
-			checkEnable:HOST +'/mimosa/client/switch/find', //判断用户是否能进行登录/注册/充值/提现/申购/非交易日提现手续费/一个月提现次数/交易日提现手续费	等操作
-			getBankStyle: HOST + '/cms/client/bankCard/find', //获取银行卡icon和背景色
-			bankList:   HOST + '/cms/client/bankCard/findall'//查询所有银行信息
-//			bankList: HOST + '/settlement/channelBank/findAllBankInfo',// --银行卡列表
-		},
-		//产品相关
-		PRODUCT: {
-//			recommends: HOST + '/mimosa/product/client/labelProducts', //根据标签查询产品列表
-			recommends: HOST + '/mimosa/product/client/pchome', //根据标签查询产品列表
-			gettnproductlist: HOST + '/mimosa/product/client/tnproducts', //定期产品列表
-//			gettnproductlist: HOST + '/mimosa/product/client/periodics', //定期产品列表
-			gett0productlist: HOST + '/mimosa/product/client/currents', //活期产品列表
-			getproductdetail:   HOST + '/mimosa/product/client/pdetail',//定期产品详情
-			mycouponofpro:   HOST + '/mimosa/client/tulip/mycouponofpro',//认购获取优惠券
-			gett0detail:   HOST + '/mimosa/product/client/cdetail', //活期产品详情
-			mholdvol:HOST + '/mimosa/client/holdconfirm/mholdvol?productOid=', //获取活期产品单人已持有金额
-			cori:HOST + '/mimosa/product/cori', //产品协议获取企业信息
-			invest: HOST + '/mimosa/client/tradeorder/invest', //--产品购买
-			performredeem: HOST + '/mimosa/client/tradeorder/redeem',//活期赎回
-			systime: HOST + '/systime', //获取系统时间
-			getsummoney:location.protocol + '//' + location.host + '/program/ctp/biz/prm/turnoverAction_queryTurnoverInfo', //获取累计成交金额，累计创造客户收益
-			getTradeRecords: HOST + '/mimosa/boot/tradeorder/mng'//获取产品的交易记录
-		},
-		ORDER: {
-			depositisdone: HOST + '/mimosa/client/investor/bankorder/isdone',//检测充值订单是否完成
-			investisdone:  HOST + '/mimosa/client/tradeorder/isdone'//检测申购订单是否完成
-		},
-		//微信相关
-		WX: {
-			qrcode: "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=",
-			sdkconfig: HOST + '/weixin/getjssdk',
-			getsceneid: HOST + '/weixin/getsceneid',
-			getopenid: HOST + '/weixin/getopenid',
-			sendtplmsg: HOST + '/weixin/sendTplMsg',
-			qrcodeticket: HOST + "/weixin1/client/wx/getqrcodeticket"
-		},
-		//截取URL
-		URL: {
-			host: location.protocol + '//' + location.host
-		},
-		//CMS后台管理系统
-		CMS: {
-			gethome:HOST+'/cms/app/home', //获取主页信息
-			getnotices:HOST+'/cms/app/getNotices',//获取公告信息
-			infromationtype:HOST+'/cms/app/getInformationType',    //获取资讯类型
-			getinformations:HOST+'/cms/app/getInformations',       //或许资讯信息
-			getBanner: HOST + '/cms/app/banner', //获取banner
-			getNoticesH5: HOST + '/cms/app/getNoticesH5', //获取公告
-			getNoticeInfo: HOST + '/cms/app/getNoticeInfo', //获取公告详情
-			getProtocolInfo: HOST+'/cms/app/getProtocolInfo',  //获取各种协议
-			elementConfig:HOST+'/cms/client/element/find',//元素配置
-			messageDetails: HOST+'/cms/client/mail/detail',//站内信详情
-			messageNoreadnum: HOST + '/cms/client/mail/noreadnum',//获取未读站内信数量
-			messageAllread: HOST + '/cms/client/mail/allread',//站内信全部置为已读
-			messageQueryPage: HOST + '/cms/client/mail/queryPage'//分页查询站内信
+
 		}
 	}
 	//ajax请求

@@ -207,3 +207,41 @@ Date.parse( new Date("2017-08-05 00:00:00"))
 ( new Date("2017-08-05 00:00:00")).valueOf()
 new Date(["2017","08","05 00:00:00"]).getTime()
 new Date('2015-09-14T09:30:16').getTime()
+
+
+// 提交格式是Formdata
+<script>
+    /**
+     * FromData:表单数据对象
+     * 这是HTML5中新增的一个Api
+     * 他能以表单对象作为参数，自动的把表单的数据打包
+     * 当ajax发送数据时，发送这个formData
+     * 达到发送表单内数据的目的
+     */
+    function send(){
+        var fm = document.getElementById('tform');
+        var fd = new FormData(fm);//创建FormData对象
+        var xhr = new XMLHttpRequest();//创建xhr对象
+        xhr.open('POST','10-formdata.php',true);//配置请求参数
+        //设置状态回调函数
+        xhr.onreadystatechange = function (){
+            if(this.readyState == 4 && this.status == 200){
+                document.getElementById('debug').innerHTML = this.responseText;
+            }
+        }
+        //说明formdata对象不仅可以读取表单的数据，也可以自行追加数据
+        fd.append('Single',false);
+        xhr.send(fd);//发送请求
+    }
+
+</script>
+<body>
+    <form id="tform">
+        用户名：<input type="text" name="username"/><br/>
+        年龄：<input type="text" name="age"/><br/>
+        邮箱：<input type="text" name="email"/><br/>
+        性别：<input type="text" name="sex"/><br/>
+        <input type="button" value="ajax发送" onclick="send();"/>
+    </form>
+    <div id="debug"></div>
+</body>

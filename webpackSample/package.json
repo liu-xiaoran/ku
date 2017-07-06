@@ -1,0 +1,23 @@
+{
+  "name": "webpacksample",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": " webpack&&webpack-dev-server --env development"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "file-loader": "^0.11.2",
+    "url-loader": "^0.5.9"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "html-withimg-loader": "^0.1.16",
+    "image-webpack-loader": "^3.3.1",
+    "json-loader": "^0.5.4",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  }
+}

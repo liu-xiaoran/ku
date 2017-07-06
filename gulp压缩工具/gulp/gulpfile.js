@@ -4,7 +4,7 @@ var tinypng = require('gulp-tinypng-compress');
 gulp.task('tinypng', function () {
     gulp.src('./../*.{png,jpg,jpeg}')
         .pipe(tinypng({
-            key: '4G1XPIf1F3CONl9i1nZ5ArnAkho2MbKt',
+            key: '_AWkY1qP_WlaPIF3yea_4d_pf1jxCNUH',
             sigFile: './',
             log: true
         }))

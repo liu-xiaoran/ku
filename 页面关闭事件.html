@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			window.onbeforeunload = function() {
+
+				var serialize = function(data) {
+					var res = '';
+					for(var i in data) {
+						res += i + '=' + data[i] + '&';
+					}
+					return res.split('&').slice(0, -1).join('&');
+				}
+				var loadXHR = function(params) {
+					var xhr = new XMLHttpRequest();
+					xhr.onload = function() {
+						if(this.status === 200) {
+							var data = JSON.parse(this.response);
+							params.success && params.success(data);
+						}
+					}
+					xhr.onerror = function() {
+						params.error && params.error();
+					}
+					xhr.open(params.type, params.url, true);
+					xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+					var data = serialize(params.data);
+					xhr.send(data);
+				}
+
+				loadXHR({
+					url: "/actives/loger/write",
+					type: "post",
+					data: "",
+					success: function(data) {
+
+					}
+				});
+
+				//				　event.returnValue = "00";
+			}
+		</script>
+	</body>
+
+</html>

@@ -245,3 +245,8 @@ new Date('2015-09-14T09:30:16').getTime()
     </form>
     <div id="debug"></div>
 </body>
+
+// JSON.parse() 方法解析一个JSON字符串，构造由字符串描述的JavaScript值或对象。可以提供可选的reviver函数以在返回之前对所得到的对象执行变换。
+JSON.parse(text[, reviver])
+//JSON.stringify() 方法将一个  JavaScript 值转换为一个 JSON 字符串，如果指定了一个 replacer 函数，则可以替换值，或者如果指定了一个 replacer 数组，可选地仅包括指定的属性。
+JSON.stringify(value[, replacer [, space]])

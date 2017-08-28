@@ -250,3 +250,6 @@ new Date('2015-09-14T09:30:16').getTime()
 JSON.parse(text[, reviver])
 //JSON.stringify() 方法将一个  JavaScript 值转换为一个 JSON 字符串，如果指定了一个 replacer 函数，则可以替换值，或者如果指定了一个 replacer 数组，可选地仅包括指定的属性。
 JSON.stringify(value[, replacer [, space]])
+
+//判断相等的JS中不能直接使用相等,为真时即为相等
+Math.abs(0.2+0.1-0.3)<1e-14

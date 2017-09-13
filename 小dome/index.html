@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=utf-8>
+  <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name=keywords content="">
+  <meta name=description content="">
+  <title>掌悦理财</title>
+</head>
+
+<body>
+  <div id="err" style="color: #f00"></div>
+  <div id="dom"></div>
+  <a href="zylc://zylc.a">app 掌阅，理财  掌阅,理财</a><br>
+  <a href="id1203692435://openwebview/?ret=0">id1203692435</a>
+
+  <script>
+    var UA = window.navigator.userAgent;
+      /**
+     * 判断是否是iOs设备
+     * @returns {boolean}
+     */
+      function isIos() {
+        return !!UA.match(/iPhone|iPad|iPod/);
+      }
+
+      /**
+       * 判断iOs设备是否是9.0以上版本
+       * @returns {boolean}
+       */
+       function isIos9() {
+        let exp = /iPhone\s?OS\s?(\d+)_(\d*)/;
+        let matched = UA.match(exp);
+        let version = matched ? new Number(matched[1] + '.' + matched[2]) : 0;
+
+        return version >= 9;
+      }
+
+      /**
+       * 判断是否是Android设备
+       * @returns {boolean}
+       */
+       function isAndroid() {
+        return !!UA.match(/Android/);
+      }
+
+      /**
+       * 判断App运行环境是否为微信
+       * @member isWeixin
+       * @method
+       * @returns {boolean}
+       */
+       function isWeixin() {
+        return UA.match(/[Mm]icro[Mm]essenger/);
+      }
+      if(isAndroid()){
+        if(isWeixin()){
+          alert(UA)
+          window.location.href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.wanse.zhangyueapp'
+        }else{
+          window.location.href = "zylc://zylc.a"
+        }
+      }
+  </script>
+</body>
+
+</html>

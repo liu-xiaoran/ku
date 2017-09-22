@@ -5,3 +5,4 @@
 wxa66081970d3e1ac868c556
 电信 用户名是telecomadmin，密码是nE7jA%5m
 document.getElementById('video-box-mocoplayer-hls-video_html5_api').playbackRate=3
+IP:23.95.13.203

@@ -1,0 +1,8 @@
+美国服务器：
+23.95.13.203
+阿里云服务器：
+106.15.199.249
+豆瓣pip地址：
+-i https://pypi.douban.com/simple
+wine使用utf-8安装软件：
+env LC_ALL=zh_CN.UTF-8 wine xxx.exe  

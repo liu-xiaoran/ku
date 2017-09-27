@@ -6,3 +6,5 @@
 -i https://pypi.douban.com/simple
 wine使用utf-8安装软件：
 env LC_ALL=zh_CN.UTF-8 wine xxx.exe  
+
+alias wine='env LANG=zh_CN.UTF-8 wine'

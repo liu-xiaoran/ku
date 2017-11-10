@@ -18,13 +18,15 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [
-                    {
-                        loader: "style-loader"
-                    }, {
-                        loader: "css-loader"
-                    }
-                ]
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: {
+                        loader: "css-loader",
+                        options: {
+                            modules: true
+                        }
+                    },
+                })
             },
             {
                 test: /\.(png|jpg)$/,
@@ -38,7 +40,7 @@ module.exports = {
         ]
     },
     plugins:[
-        // new ExtractTextPlugin("style.css"),
+        new ExtractTextPlugin("style.css"),
         new HtmlWebpackPlugin({
             title:"测试",
             template: __dirname +"/app/index.html"

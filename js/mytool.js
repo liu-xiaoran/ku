@@ -253,3 +253,7 @@ JSON.stringify(value[, replacer [, space]])
 
 //判断相等的JS中不能直接使用相等,为真时即为相等
 Math.abs(0.2+0.1-0.3)<1e-14
+
+
+
+onkeypress="return (/^[a-z0-9]+$/i.test(String.fromCharCode(event.keyCode)))"

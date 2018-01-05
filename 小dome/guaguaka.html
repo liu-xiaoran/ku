@@ -103,6 +103,31 @@
                 }
             }
         }
+		
+		
+		openModal(){
+		  console.log("点击左键")
+		  if(loadscript){
+			  console.log("刷新模态")
+			  setTimeout(function () {
+				myScroll.refresh();
+				myScroll.options.snap = true;
+			  }, 0);
+
+			  return
+		  }
+		  this.loadScript("static/iscroll-lite.js",function(){
+		  loadscript=true;
+		  myScroll = new IScroll('#record', {
+			  hScrollbar: false,
+			  vScrollbar: true,
+			  topOffset: 50,
+			  snap: true
+		  })
+		  })
+		}
+		
+		
     </script>
 </body>
 </html>

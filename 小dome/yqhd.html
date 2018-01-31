@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>邀请活动</title>
+    <style>
+    body {
+        padding: 0;
+        margin: 0;
+        font-size: 0;
+        background: #ffffff;
+        padding-bottom: 12%;
+    }
+
+    #yqhdfix {
+        width: 100%;
+        display: block;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+    </style>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d361836c2f08b7ed0f588fd60827a759";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body class="box">
+    <img class="_new" style="width:100%;display:block;" src="static/images/m_yqhd_a1.png" />
+    <img class="_new" style="width:100%;display:block;" src="static/images/m_yqhd_b1.png" />
+    <img class="_new" style="width:100%;display:block;" src="static/images/m_yqhd_c1.png" />
+    <img class="_new" style="width:100%;display:block;" src="static/images/m_yqhd_a.png" />
+
+    <img class="_old" style="width:100%;display:block;" src="static/images/m_yqhd_a_old.png" />
+    <img style="width:100%;display:block;" src="static/images/m_yqhd_b.png" />
+    <img class="_new" style="width:100%;display:block;" src="static/images/m_yqhd_btiyan.png" />
+    <img style="width:100%;display:block;" src="static/images/m_yqhd_bhongbao.png" />
+    <img style="width:100%;display:block;" src="static/images/m_yqhd_c.png" id="yqhdfoot" />
+    <img src="static/images/m_yqhdfix.png" id="yqhdfix">
+    <script>
+    //定义发生数据和服务器时间
+    var ServerTime,sendData;
+    sendData = JSON.stringify({extendInfo:"ServerTime"})
+
+    /*这段代码是固定的，必须要放到js中*/
+    function setupWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+        window.WVJBCallbacks = [callback];
+        var WVJBIframe = document.createElement('iframe');
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+    /*与OC交互的所有JS方法都要放在此处注册，才能调用通过JS调用OC或者让OC调用这里的JS*/
+    (!!window.navigator.userAgent.match(/iPhone|iPad|iPod/)) && setupWebViewJavascriptBridge(function(bridge) {
+        window.JavascriptBridge = bridge;
+    })
+    window.postMessage = function(json) {
+        if (typeof Client != "undefined") {
+            Client.postMessage && Client.postMessage(JSON.stringify(json));
+        } else {
+            window.JavascriptBridge && window.JavascriptBridge.callHandler('postMessage', json, function(response) {})
+        }
+    }
+    var oButton = document.getElementById("yqhdfix")
+    var oBody = document.getElementsByClassName('box')[0]
+    var news=document.getElementsByClassName('_new')
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    var canInvite = getQueryString("canInvite")
+    if (canInvite != 1) {
+        oBody.style.cssText = "padding-bottom: 0;"
+        oButton.style.cssText = "display: none;"
+    }
+    //控制显示新旧的函数
+    function newsOld(){
+        //当服务器时间小于开始时间或者大于结束时间时，不现实活动内容
+        if(ServerTime<=1518537600000||ServerTime>=1520006400000){
+            for (var i = news.length - 1; i >= 0; i--) {
+                news[i].style.cssText = "display: none;"
+            }
+        }else{
+            document.getElementsByClassName('_old')[0].style.cssText = "display: none;"
+        }
+    }
+    var XHR = null;
+    if (window.XMLHttpRequest) {
+        // 非IE内核  
+        XHR = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        // IE内核,这里早期IE的版本写法不同,具体可以查询下  
+        XHR = new ActiveXObject("Microsoft.XMLHTTP");
+    } else {
+        XHR = null;
+    }
+
+    if (XHR) {
+        XHR.open("post", "/inviteInfo");
+
+        XHR.onreadystatechange = function() {
+
+            if (XHR.readyState == 4 && XHR.status == 200) {
+                // 这里可以对返回的内容做处理  
+                // 一般会返回JSON或XML数据格式  
+                window.inviteInfo = JSON.parse(XHR.responseText).data
+                ServerTime = JSON.parse(XHR.responseText).extendInfo.ServerTime
+                newsOld()
+                // 主动释放,JS本身也会回收的  
+                XHR = null;
+            }
+        };
+        XHR.send(sendData);
+    }
+    oButton.onclick = function() {
+        window.postMessage && window.postMessage({ 'key': "share", 'url': window.inviteInfo.inviteJumpUrl, 'title': window.inviteInfo.inviteConfig.title, 'content': window.inviteInfo.inviteConfig.content, 'imageUrl': window.inviteInfo.inviteConfig.imageUrl,'img': window.inviteInfo.inviteConfig.imageUrl});
+    }
+    if (location.origin != "https://www.zhangyuelicai.com") {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "http://106.14.25.126/h5/libs/js/vconsole.min.js";
+        document.getElementsByTagName("head")[0].appendChild(script);
+    }
+    </script>
+</body>
+
+</html>

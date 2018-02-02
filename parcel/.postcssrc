@@ -1,8 +1,9 @@
 {
-  "modules": true,
+  "modules": false,
   "plugins": {
     "autoprefixer": {
-      "grid": true
+      "grid": true,
+      "browsers": ["Android >= 2.1", "iOS >= 4", "ie >= 8", "firefox >= 15"]
     }
   }
 }

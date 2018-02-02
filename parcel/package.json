@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build index.html",
+    "dev": "parcel index.html -p 8080"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +15,10 @@
     "autoprefixer": "^7.2.3",
     "babel-preset-env": "^1.6.1",
     "postcss-modules": "^1.1.0",
+    "zeptojs": "^1.1.4"
+  },
+  "devDependencies": {
+    "posthtml": "^0.11.0",
     "posthtml-img-autosize": "^0.1.1"
   }
 }

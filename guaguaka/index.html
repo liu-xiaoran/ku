@@ -1,196 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>刮刮卡</title>
-    <style>
-        .canvas {
-            background-size: 100% 100%;
-            width: 60%;
-            height: 80px;
-        }
-    </style>
-    <!-- 按钮点击 -->
-    <style>
-        .a_demo_two {
-            background-color: #3bb3e0;
-            padding: 10px;
-            position: relative;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 12px;
-            text-decoration: none;
-            color: #fff;
-            background-image: linear-gradient(bottom, rgb(44, 160, 202) 0%, rgb(62, 184, 229) 100%);
-            background-image: -o-linear-gradient(bottom, rgb(44, 160, 202) 0%, rgb(62, 184, 229) 100%);
-            background-image: -moz-linear-gradient(bottom, rgb(44, 160, 202) 0%, rgb(62, 184, 229) 100%);
-            background-image: -webkit-linear-gradient(bottom, rgb(44, 160, 202) 0%, rgb(62, 184, 229) 100%);
-            background-image: -ms-linear-gradient(bottom, rgb(44, 160, 202) 0%, rgb(62, 184, 229) 100%);
-            background-image: -webkit-gradient( linear,
-            left bottom,
-            left top,
-            color-stop(0, rgb(44, 160, 202)),
-            color-stop(1, rgb(62, 184, 229)));
-            -webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 6px 0px #156785;
-            -moz-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 6px 0px #156785;
-            -o-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 6px 0px #156785;
-            box-shadow: inset 0px 1px 0px #7fd2f1, 0px 6px 0px #156785;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            -o-border-radius: 5px;
-            border-radius: 5px;
-        }
-
-        .a_demo_two::before {
-            background-color: #072239;
-            content: "";
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            padding-left: 2px;
-            padding-right: 2px;
-            padding-bottom: 4px;
-            left: -2px;
-            top: 5px;
-            z-index: -1;
-            -webkit-border-radius: 6px;
-            -moz-border-radius: 6px;
-            -o-border-radius: 6px;
-            border-radius: 6px;
-            -webkit-box-shadow: 0px 1px 0px #fff;
-            -moz-box-shadow: 0px 1px 0px #fff;
-            -o-box-shadow: 0px 1px 0px #fff;
-            box-shadow: 0px 1px 0px #fff;
-        }
-
-        .a_demo_two:active {
-            color: #156785;
-            text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3);
-            background: rgb(44, 160, 202);
-            -webkit-box-shadow: inset 0px 1px 0px #7fd2f1, inset 0px -1px 0px #156785;
-            -moz-box-shadow: inset 0px 1px 0px #7fd2f1, inset 0px -1px 0px #156785;
-            -o-box-shadow: inset 0px 1px 0px #7fd2f1, inset 0px -1px 0px #156785;
-            box-shadow: inset 0px 1px 0px #7fd2f1, inset 0px -1px 0px #156785;
-            top: 7px;
-        }
-
-        .a_demo_two:active::before {
-            top: -2px;
-        }
-    </style>
-</head>
-
-<body>
-    <canvas id="c1" class="canvas"></canvas>
-    <div>
-        <a href="#" class="a_demo_two">
-            Click me!
-        </a>
-    </div>
-    <!-- 刮刮乐的代码 -->
-    <script>
-        //引入外层图片
-        var tup = new Image()
-        tup.src = '00.jpg'
-
-        var c1; //画布
-        var ctx; //画笔
-        var ismousedown; //按下
-        //根据不同屏幕，控制画笔大小
-        var fontem = parseInt(window.screen.width * window.devicePixelRatio) / 35
-        // var tup = document.getElementById("tup"); 
-
-        window.onload = function () {
-            c1 = document.getElementById('c1');
-            //获取宽高设置为canvas宽高
-            c1.width = c1.clientWidth;
-            c1.height = c1.clientHeight;
-            ctx = c1.getContext('2d');
-            //PC端
-            c1.addEventListener('mousedown', eventDown, false);
-            c1.addEventListener("mousemove", eventMove, false);
-            c1.addEventListener('mouseup', eventUp, false);
-            //移动端
-            c1.addEventListener("touchstart", eventDown, false);
-            c1.addEventListener('touchend', eventUp, false);
-            c1.addEventListener('touchmove', eventMove, false);
-            //初始化
-            initCanvas();
-            
-            //初始化画布
-            function initCanvas() {
-                //可以给canvas设置奖品背景图片
-                c1.style.backgroundImage = 'url(00.jpg)'
-
-                ctx.globalCompositeOperation = 'source-over';
-                // ctx.fillStyle = '#aaaaaa';
-                // ctx.fillRect(0, 0, c1.clientWidth, c1.clientHeight);
-                // ctx.fill();
-
-                ctx.drawImage(tup,0,0);
-
-                // ctx.font = 'Bold 30px Arial';
-                // ctx.fillStyle = "#999"
-                // ctx.textAlign = 'center';
-                // ctx.fillText('刮一刮', c1.width / 2, c1.height / 2);
-
-                ctx.globalCompositeOperation = 'destination-out';
-            }
-            //按下
-            function eventDown(e) {
-                e.preventDefault();
-                ismousedown = true;
-            }
-            //结束
-            function eventUp(e) {
-                e.preventDefault();
-                ismousedown = false;
-            }
-            //进行中
-            function eventMove(e) {
-                e.preventDefault();
-                if (ismousedown) {
-                    if (e.changedTouches) {
-                        e = e.changedTouches[e.changedTouches.length - 1]
-                    }
-                    var topY = document.getElementById('c1').offsetTop; //bodyTop
-                    var oX = c1.offsetLeft,
-                        oY = c1.offsetTop + topY;
-                    var x = (e.clientX + document.body.scrollLeft || e.pageX) - oX || 0,
-                        y = (e.clientY + document.body.scrollTop || e.pageY) - oY || 0;
-                    ctx.beginPath();
-                    //刮圆
-                    ctx.arc(x, y, fontem, 0, Math.PI * 2)
-                    console.log(fontem)
-                    //刮方
-                    // ctx.rect(x-fontem,y-fontem,fontem*2,fontem*2)
-
-                    //修复部分手机不支持 destination-out，原理暂不明
-                    c1.style.display = 'none';
-                    c1.offsetHeight;
-                    c1.style.display = 'inherit';
-                    ctx.fill();
-                };
-                half();
-            }
-            //被刮开一半时开始处理结果
-            function half() {
-                var a = ctx.getImageData(0, 0, c1.width, c1.height);
-                var j = 0;
-                for (var i = 3; i < a.data.length; i += 4) {
-                    if (a.data[i] == 0) j++
-                }
-                //一半时
-                if (j >= a.data.length / 8) {
-                    ctx.fillRect(0, 0, c1.clientWidth, c1.clientHeight);
-                    ctx.fill();
-                }
-            }
-        }
+<html id="html">
+  <head>
+    <meta charset="utf-8">
+    <title>掌悦理财-刮刮乐</title>
+    <script type="text/javascript">
+    	!function(){var a="@charset \"utf-8\";html{color:#000;background:#fff;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}html,body{font-family:sans-serif}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}abbr,acronym{border:0;font-variant:normal}del{text-decoration:line-through}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}q:before,q:after{content:''}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}a:hover{text-decoration:underline}ins,a{text-decoration:none}",b=document.createElement("style");if(document.getElementsByTagName("head")[0].appendChild(b),b.styleSheet)b.styleSheet.disabled||(b.styleSheet.cssText=a);else try{b.innerHTML=a}catch(c){b.innerText=a}}();!function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){console.warn("将根据已有的meta标签来设置缩放比例");var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var p=(a.navigator.appVersion.match(/android/gi),a.navigator.appVersion.match(/iphone/gi)),q=a.devicePixelRatio;i=p?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
     </script>
-</body>
-
+	<script type="text/javascript" src="/h5/libs/js/ZYLIB.interactive-0.0.1.min.js"></script>
+	<script type="text/javascript">
+      var zyInteractive=new ZYLIB.ZYInteractive()
+	  ZYLIB.ZYInteractive.postMessage( {"key":"header-right-button","text":" ","target-data":""} ,"")
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    
+    <script>
+      new ZYLIB.ZYWechat({
+        data:{
+          title:'一起来玩刮刮卡！',
+          desc:'京东E卡1000元等你来拿！'
+        },
+        timelineData:{
+          title: '一起来玩刮刮卡！'
+        }
+      })
+    </script>
+    
+    <!-- 百度统计 -->
+    <script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?d361836c2f08b7ed0f588fd60827a759";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+    </script>
+  </body>
 </html>

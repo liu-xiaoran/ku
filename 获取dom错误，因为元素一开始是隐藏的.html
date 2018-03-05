@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>邀请好友</title>
+    <script type="text/javascript">
+    	!function(){var a="@charset \"utf-8\";html{color:#000;background:#fff;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}html,body{font-family:sans-serif}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}abbr,acronym{border:0;font-variant:normal}del{text-decoration:line-through}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}q:before,q:after{content:''}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}a:hover{text-decoration:underline}ins,a{text-decoration:none}",b=document.createElement("style");if(document.getElementsByTagName("head")[0].appendChild(b),b.styleSheet)b.styleSheet.disabled||(b.styleSheet.cssText=a);else try{b.innerHTML=a}catch(c){b.innerText=a}}();!function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){console.warn("将根据已有的meta标签来设置缩放比例");var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var p=(a.navigator.appVersion.match(/android/gi),a.navigator.appVersion.match(/iphone/gi)),q=a.devicePixelRatio;i=p?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
+    </script>
+    <script type="text/javascript" src="/h5/libs/js/ZYLIB.interactive-0.0.1.min.js"></script>
+    <script type="text/javascript">
+        var zyInteractive=new ZYLIB.ZYInteractive()
+        
+        //屏蔽右上角按钮
+        window.onload = function(){
+            ZYLIB.ZYInteractive.postMessage( {"key":"header-right-button","text":" ","target-data":""} ,"")
+        }
+    </script>
+    
+    <style>
+    body {
+        padding: 0;
+        font-size: 0;
+        background: #f96b1e;
+        padding-bottom: 12%;
+        width: 10rem;
+        margin: 0 auto;
+    }
+    #yqhdfix {
+        width: 10rem;
+        margin: 0 auto;
+        display: block;
+        position: fixed;
+        bottom: 0;
+        /* right: 0; */
+    }
+    .buyModel{
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 10;
+        background: rgba(0, 0, 0, .5);
+        top:0;
+        left: 0;
+    }
+    .buyModelCon{
+        width: 7.373333rem /* 553/75 */;
+        height: 4.493333rem /* 337/75 */;
+        margin: 0 auto;
+        background: url(images/tan.png) center no-repeat;
+        background-size: 100% auto;
+        margin-top: 5.466667rem /* 410/75 */;
+        overflow: hidden;
+    }
+    .goTnList{
+        /* border: 1px solid red; */
+        width: 3.226667rem /* 242/75 */;
+        height: .853333rem /* 64/75 */;
+        margin: 2.906667rem /* 218/75 */ auto 0;
+    }
+    /* 提示样式 */
+    .prompt_box {
+        display: none;
+        width: 100%;
+        overflow: hidden;
+        position: fixed;
+        top:45%;
+        left: 0;
+        z-index: 10;
+        text-align: center;
+    }
+    .prompt {
+        display: inline-block;
+        padding: .32rem .8rem .32rem .8rem;
+        font-size: .4rem;
+        color: #fff;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+        background: rgba(0,0,0,.6);
+    }
+    </style>
+</head>
+
+<body class="box">
+    <img class="_new" style="width:100%;display:block;" src="images/img1.png" />
+    <img class="_new" style="width:100%;display:block;" src="images/img2.png" />
+    <img class="_new" style="width:100%;display:block;" src="images/img3.png" />
+    <img src="images/m_yqhdfix.png" id="yqhdfix">
+    <div class="buyModel" id="buyModel"><div class="buyModelCon" id="buyModelCon"><div class="goTnList" id="goTnList"></div></div></div>
+    <!-- <div class="prompt_box" id="prompt_box">
+        <span class="prompt" id="prompts"></span>
+    </div> -->
+    <script>
+    //定义发生数据和服务器时间
+    // var ServerTime,sendData;
+    // sendData = JSON.stringify({extendInfo:"ServerTime"})
+
+    
+    var oButton = document.getElementById("yqhdfix")
+    var oTnList = document.getElementById("goTnList")
+    var buyModelCon = document.getElementById("buyModelCon")
+    // var promptBox = document.getElementById("prompt_box")
+    // var prompt = document.getElementById("prompts")
+    var buyModel= document.getElementById("buyModel")
+    var oBody = document.getElementsByClassName('box')[0]
+    var news=document.getElementsByClassName('_new')
+    // function showPrompt(str){
+    //     promptBox.style.cssText = "display:block;";
+    //     prompt.innerHTML = str;
+    //     setTimeout(function(){
+    //         promptBox.style.cssText = "display:none;";
+    //         prompt.innerHTML = "";
+    //     },2000)
+    // }
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    var XHR = null;
+    if (window.XMLHttpRequest) {
+        // 非IE内核  
+        XHR = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        // IE内核,这里早期IE的版本写法不同,具体可以查询下  
+        XHR = new ActiveXObject("Microsoft.XMLHTTP");
+    } else {
+        XHR = null;
+    }
+
+    if (XHR) {
+        XHR.open("post", "/platform1/Member/inviteInfo");
+
+        XHR.onreadystatechange = function() {
+
+            if (XHR.readyState == 4 && XHR.status == 200) {
+                // 对返回的内容做处理  
+                var res = JSON.parse(XHR.responseText)
+
+                if(res.code==10000){
+                    window.login = true;
+                    window.inviteInfo = res.data
+                    window.canInvite = window.inviteInfo.canInvite
+                }else if(res.code==10001){
+                    window.login = false;
+                }else{
+                    window.login = false;
+                    // ZYLIB.ZYInteractive.postMessage({},res.message)
+                    // showPrompt(res.message)
+                    ZYLIB.toast(res.message)
+                }
+                
+                // 主动释放,JS本身也会回收的  
+                XHR = null;
+            }else{
+                // ServerTime=0;
+            }
+        };
+        XHR.send();
+    }
+    //判断浏览器
+    function ue(){
+        var e = navigator.userAgent.toLowerCase();
+        return {
+            iphone: /iphone/.test(e),
+            android: /android/.test(e),
+            winphone: /windows phone/.test(e),
+            weixin: /micromessenger/.test(e),
+            qqnews: /qqnews/.test(e),
+            mqqbrowser: /mqqbrowser/.test(e),
+            qq: /\sqq/.test(e)
+        }
+    }
+    buyModelCon.onclick = function(e){
+        if(e && e.stopPropagation){
+        //即为非IE浏览器
+            e.stopPropagation();
+        }else{
+            //IE方式取消事件冒泡    
+            window.event.cancelBubble=true;
+        }
+    }
+    oTnList.onclick = function(){
+        if(ue().iphone==true){
+            //跳转到IOS定期列表
+            ZYLIB.ZYInteractive.postMessage({ 'key':"ZYFixedViewController"},'请至APP进行相关投资~')
+        }else if(ue().android==true){
+            //跳转到安卓定期列表
+            ZYLIB.ZYInteractive.postMessage({ 'key': "to_activity",'id':11},'请至APP进行相关投资~')
+        }else{
+            // showPrompt('请至APP进行相关投资~')
+            ZYLIB.toast("请至APP进行相关投资~")
+        }  
+    }
+    buyModel.onclick = function(){
+        document.removeEventListener('touchmove', function(e){e.preventDefault();}, false);
+        buyModel.style.cssText = "display:none;"
+    }
+    oButton.onclick = function() {
+        //判断登陆
+        if(window.login){
+            //判断是否可以邀请
+            if(window.canInvite){
+                //唤起分享
+                ZYLIB.ZYInteractive.postMessage({ 'key': "share", 'url': window.inviteInfo.inviteJumpUrl, 'title': window.inviteInfo.inviteConfig.title, 'content': window.inviteInfo.inviteConfig.content, 'imageUrl': window.inviteInfo.inviteConfig.imageUrl,'img': window.inviteInfo.inviteConfig.imageUrl},"");
+            }else{
+                //弹出弹框
+                // buyModel.style.cssText = "display:block;"
+                // document.addEventListener('touchmove', function(e){e.preventDefault();}, false);
+                // ZYLIB.ZYInteractive.postMessage({},'投资任意定期产品可成为邀请人')
+                // showPrompt('投资任意定期产品可成为邀请人')
+                ZYLIB.toast("投资任意定期产品可成为邀请人")
+            }
+        }else{
+            ZYLIB.ZYInteractive.postMessage({ 'key': "login"},'请登录后再来~')
+        }
+
+    }
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d361836c2f08b7ed0f588fd60827a759";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</body>
+
+</html>

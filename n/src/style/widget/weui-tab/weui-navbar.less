@@ -1,0 +1,40 @@
+@import "../../base/fn.less";
+.weui-navbar {
+    display: flex;
+    position: absolute;
+    z-index: 500;
+    top: 0;
+    width: 100%;
+    border-bottom: 0.01rem solid #dfdfdf;
+    background: #fff;
+}
+
+.weui-navbar__item {
+    position: relative;
+    display: block;
+    flex: 1;
+    height: 1.06rem;
+    line-height: 1.06rem;
+    text-align: center;
+    font-size: 0;
+    color: #3b3b3b;
+    &.weui-bar__item_on {
+        color: @zyColorPrimary;
+    }
+}
+.weui-navbar__slider {
+    position: absolute;
+    content: " ";
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 0.06rem;
+    background-color: @zyColorPrimary;
+    transition: transform .3s;
+}
+.weui-navbar__title{
+    display: inline-block;
+    font-size: 15px;
+    max-width: 8em;
+    .ellipsis();
+}

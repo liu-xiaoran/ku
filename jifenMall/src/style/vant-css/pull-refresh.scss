@@ -1,0 +1,38 @@
+@import './common/var.scss';
+
+.van-pull-refresh {
+  user-select: none;
+  position: relative;
+
+  &__head {
+    width: 100%;
+    height: 1.3rem;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    top: -1.3rem;
+    font-size: 0.36rem;
+    color: $gray;
+    line-height: 1.3rem;
+  }
+
+  &__loading {
+    .van-loading {
+      width: 0.426667rem;
+      height: 0.426667rem;
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    span,
+    .van-loading {
+      vertical-align: middle;
+    }
+  }
+
+  &__text {
+    display: block;
+  }
+}
+

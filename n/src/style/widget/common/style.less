@@ -1,0 +1,550 @@
+ @import "../../base/variable/color.less";
+ @import "../../utils.less";
+ @font-face {
+     font-family: "iconfont";
+     src: url('//at.alicdn.com/t/font_462537_s204q9gwiphnnrk9.eot?t=1511846490167');
+     /* IE9*/
+     src: url('//at.alicdn.com/t/font_462537_s204q9gwiphnnrk9.eot?t=1511846490167#iefix') format('embedded-opentype'), /* IE6-IE8 */
+     url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'), url('//at.alicdn.com/t/font_462537_s204q9gwiphnnrk9.ttf?t=1511846490167') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+     url('//at.alicdn.com/t/font_462537_s204q9gwiphnnrk9.svg?t=1511846490167#iconfont') format('svg');
+     /* iOS 4.1- */
+ }
+ 
+ .iconfont {
+     font-family: "iconfont" !important;
+     font-size: 16px;
+     font-style: normal;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+ }
+ 
+ .icon-fenlei:before {
+     content: "\e66f";
+ }
+ 
+ .icon-time:before {
+     content: "\e622";
+ }
+ 
+ .icon-tanhao:before {
+     content: "\e640";
+ }
+ 
+ .icon-cha2:before {
+     content: "\e64b";
+ }
+ 
+ .icon-gou1:before {
+     content: "\e654";
+ }
+ 
+ .icon-yanjing:before {
+     content: "\e6b5";
+ }
+ 
+ .icon-cha:before {
+     content: "\e678";
+ }
+ 
+ .icon-anquan:before {
+     content: "\e634";
+ }
+ 
+ .icon-qian:before {
+     content: "\e636";
+ }
+ 
+ .icon-shijian:before {
+     content: "\e628";
+ }
+ 
+ .icon-youjian1:before {
+     content: "\e6c8";
+ }
+ 
+ .icon-cha1:before {
+     content: "\e615";
+ }
+ 
+ .icon-gou2:before {
+     content: "\e98c";
+ }
+ 
+ .icon-yanjing1:before {
+     content: "\e60e";
+ }
+ 
+ .icon-gou:before {
+     content: "\e616";
+ }
+ 
+ .icon-cha3:before {
+     content: "\e601";
+ }
+ 
+ .icon-icon:before {
+     content: "\e600";
+ }
+ 
+ .eliminate {
+     //width: 23rpx;
+     //height: 23rpx;
+     padding: 0.26rem;
+ }
+ 
+ input {
+     border: none;
+     outline: none;
+ }
+ 
+ .inputBox input {
+     line-height: 0.42rem;
+     .font-dpr(28);
+     color: #3b3b3b;
+     flex: 1;
+ }
+ 
+ input::-webkit-input-placeholder,
+ textarea::-webkit-input-placeholder {
+     color: #d4d4d4;
+ }
+ 
+ input:-moz-placeholder,
+ textarea:-moz-placeholder {
+     color: #d4d4d4;
+ }
+ 
+ input::-moz-placeholder,
+ textarea::-moz-placeholder {
+     color: #d4d4d4;
+ }
+ 
+ input:-ms-input-placeholder,
+ textarea:-ms-input-placeholder {
+     color: #d4d4d4;
+ }
+ 
+ .homeBanner .van-swipe__indicators {
+     width: 100%;
+     position: absolute;
+     left: 0;
+     bottom: 0.3rem;
+     text-align: center;
+ }
+ 
+ .homeBanner .van-swipe__indicators i {
+     width: 0.17rem;
+     height: 0.17rem;
+     margin: 0 0.06rem;
+     background: rgba(255, 255, 255, 0.5);
+     display: inline-block;
+     border-radius: 200px;
+ }
+ 
+ .homeBanner .van-swipe__indicators .van-swipe__indicator--active {
+     background: #fff;
+ }
+ 
+ .getVercode {
+     position: relative;
+     border: none;
+     height: 1rem;
+     line-height: 1rem;
+     padding-right: 0;
+     background: #fff;
+     color: #e45038;
+     .font-dpr(28);
+     padding-left: 0.3rem;
+     &:after {
+         position: absolute;
+         content: " ";
+         left: 0;
+         top: 0.29rem;
+         bottom: 0.29rem;
+         right: 0;
+         height: 0.44rem;
+         border-left: 0.02rem solid #dfdfdf;
+     }
+ }
+ 
+ .getVercode[disabled][type="default"],
+ .getVercode[disabled]:not([type]) {
+     background: #fff;
+     color: #a6a6a6;
+ }
+ 
+ .comBtn {
+     width: 100%;
+     height: 1.06rem;
+     line-height: 1.06rem;
+     background: #e45038;
+     color: #fff;
+     .font-dpr(32);
+     border: none;
+     outline: none;
+     border-radius: 0.12rem;
+ }
+ 
+ .comBtn[disabled][type="default"],
+ .comBtn[disabled]:not([type]) {
+     background: #ffafa2;
+     color: #fff;
+ }
+ 
+ .agree {
+     width: 0.32rem;
+     height: 0.32rem;
+     padding: 0.26rem;
+     padding-right: 0.13rem;
+ }
+ 
+ .eye {
+     width: 0.41rem;
+     height: 0.33rem;
+     padding:0.4rem 0.26rem;
+     line-height: 0.33rem;
+     .font-dpr(32);
+     color: #8a8a8a;
+ }
+ 
+ .agreeBox {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: #3b3b3b;
+     .font-dpr(24);
+ }
+ 
+ .agreeBox .agreement {
+     line-height: 0.41rem;
+     color: #e45038;
+ }
+ 
+ .agreeText {
+     display: flex;
+     flex-direction: row;
+ }
+ 
+ .inputBoxs {
+     width: 96%;
+     padding-left: 4%;
+     background: #fff;
+     margin-top: 0.4rem;
+ }
+ 
+ .inputs {
+     width: 95%;
+     height: 1.17rem;
+     padding-right: 5%;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     .font-dpr(28);
+     color: #3b3b3b;
+ }
+ 
+ .newBox {
+     border-bottom: 0.02rem solid #dfdfdf;
+ }
+ 
+ .inputTexts {
+     width: 26%;
+ }
+ 
+ .inputText {
+     margin-right: 0.66rem;
+ }
+ 
+ //我的list
+ .mylist {
+     position: relative;
+     background-color: #fff;
+     .font-dpr(30);
+ }
+ 
+ .list-cells {
+     padding-left: 0.38rem;
+     background-color: #fff;
+ }
+ 
+ .list-cell {
+     margin-left: 0.38rem;
+     padding-right: 0.38rem;
+     height: 1.17rem;
+     position: relative;
+     display: flex;
+     align-items: center;
+     color: #3b3b3b;
+ }
+ 
+ .list-cell .icons {
+     margin-right: 0.26rem;
+     width: 0.46rem;
+     height: 0.46rem;
+ }
+ 
+ .list-cell__bd {
+     flex: 1;
+ }
+ 
+ .list-cell__bd_inputs {
+     width: 100%;
+ }
+ 
+ .list-cell__ft {
+     text-align: right;
+     color: #a6a6a6;
+     .font-dpr(24);
+ }
+ 
+ .list-cell__ft_in-access {
+     position: relative;
+     display: block;
+     height: 1.17rem;
+     line-height: 1.17rem;
+ }
+ 
+ .list-cell__ft_in-access::after {
+     position: relative;
+     content: " ";
+     display: inline-block;
+     height: 0.2rem;
+     width: 0.2rem;
+     border-width: 0.04rem 0.04rem 0 0;
+     border-color: #a6a6a6;
+     border-style: solid;
+     transform: matrix(.71, .71, -0.71, .71, 0, 0);
+     margin-top: -0.05rem;
+     right: 0.05rem;
+ }
+ 
+ .prompt {
+     margin-right: 0.13rem;
+ }
+ 
+ .bankBox {
+     width: 100%;
+     height: 2.53rem;
+     background: #fff;
+     display: flex;
+     margin-top: 0.26rem;
+ }
+ 
+ .bankLogo {
+     //width: 80rpx;
+     //height: 80rpx;
+     //margin: 40rpx 30rpx 0 40rpx;
+     width: 1.61rem;
+     height: 1.1rem;
+     margin: 0.53rem 0.13rem 0 0.26rem;
+ }
+ 
+ .bankcon {
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+ }
+ 
+ .bankName,
+ .bankCardNo {
+     color: #3b3b3b;
+     .font-dpr(30);
+ }
+ 
+ .bankCardNo {
+     margin: 0.1rem 0;
+ }
+ 
+ .bankMeg {
+     color: #a6a6a6;
+     .font-dpr(24);
+ }
+ 
+ .noNum {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding-top: 2.66rem;
+     .font-dpr(35);
+     color: #ccc;
+ }
+ 
+ .btn-area {
+     margin-top: 0.72rem;
+     box-sizing: border-box;
+     width: 100%;
+     padding-left: 0.38rem;
+     padding-right: 0.38rem;
+ }
+ 
+ .progress-bar {
+     position: relative;
+     -webkit-animation: animate-positive 2s ease 30s;
+     animation: animate-positive 2s ease 30s;
+ }
+ 
+ @-webkit-keyframes animate-positive {
+     0% {
+         width: 0;
+     }
+ }
+ 
+ @keyframes animate-positive {
+     0% {
+         width: 0;
+     }
+ }
+ 
+ .empty-placeholder {
+     width: 100%;
+     padding-top: 3.73rem;
+     align-items: center;
+     text-align: center;
+     color: #ccc;
+     text {
+         .font-dpr(40);
+     }
+ }
+ 
+ .coupon-box-t {
+     height: 0.1rem;
+ }
+ 
+ .coupon-box {
+     //   min-height: 3rem;
+     background-color: #fff;
+     border-radius: 0.2rem;
+     overflow: hidden;
+     margin-bottom: 0.4rem;
+ }
+ 
+ .coupon-title {
+     margin-left: 0.3rem;
+     margin-right: 0.3rem;
+     height: 1.38rem;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+     border-bottom: 0.02rem dashed #bebebe;
+ }
+ 
+ .coupon-type {
+     color: #fff;
+     border-radius: 0.06rem;
+     .font-dpr(24);
+     padding-left: 0.22rem;
+     padding-right: 0.22rem;
+     margin-left: 0.13rem;
+     height: 0.42rem;
+     line-height: 0.42rem;
+ }
+ 
+ .coupon-title-1 {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+ }
+ 
+ .coupon-title-2 {
+     .num {
+         .font-dpr(60);
+     }
+     .rmb {
+         .font-dpr(28);
+     }
+ }
+ 
+ .coupon-content {
+     min-height: 2.1rem;
+     margin-left: 0.3rem;
+     margin-right: 0.3rem;
+     .font-dpr(24);
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     color: #3b3b3b;
+     line-height: 0.56rem;
+ }
+ 
+ .coupon-content-two {
+     margin: 0.06rem 0;
+ }
+ 
+ .coupon-btnbox {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+     .grey {
+         color: #a6a6a6
+     }
+     .button {
+         background-color: #fb9558;
+         height: 0.5rem;
+         line-height: 0.5rem;
+         color: #fff;
+         padding-left: 0.24rem;
+         padding-right: 0.24rem;
+         border-radius: 0.26rem;
+     }
+ }
+ 
+ .mixinColor(@color) {
+     .coupon-box-t {
+         background-color: @color
+     }
+     .coupon-type {
+         background-color: @color;
+     }
+     .coupon-title {
+         color: @color;
+     }
+ }
+ 
+ .coupon-box-COUPON {
+     .mixinColor(@zyColorPrimary)
+ }
+ 
+ .coupon-box-RATECOUPON {
+     .mixinColor(#689ed5)
+ }
+ 
+ .coupon-box-REDPACKETS {
+     .mixinColor(#a16bb1)
+ }
+ 
+ .coupon-title-name {
+     .font-dpr(32);
+ }
+ 
+ .white {
+     color: #fff;
+     display: none;
+ }
+ 
+ .coupon-box-gray {
+     .mixinColor(#a6a6a6)
+ }
+ 
+ .chasBtn {
+     color: #d8d8d8;
+     .font-dpr(28);
+ }
+ 
+ .van-icon {
+     display: inline-block;
+     font: normal normal normal 14px/1 "iconfont";
+     font-size: inherit;
+     text-rendering: auto;
+     &:before {
+         display: inline-block;
+     }
+ }
+ 
+ .van-icon-success:before {
+     content: "\e616"; //"\e616" "\e98c"
+ }

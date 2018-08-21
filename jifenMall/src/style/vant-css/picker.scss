@@ -1,0 +1,85 @@
+@import './common/var.scss';
+@import '../utils.scss';
+
+
+
+.van-picker {
+  overflow: hidden;
+  user-select: none;
+  background-color: $white;
+
+  &__toolbar {
+    height: 1.013333rem;
+    line-height: 1.013333rem;
+    overflow: hidden;
+  }
+
+  &__cancel,
+  &__confirm {
+    color: $active-color;
+    padding: 0 0.32rem;
+    @include font-dpr(14px);
+    &:active {
+      background-color: $active-color;
+    }
+  }
+
+  &__cancel {
+    float: left;
+  }
+
+  &__confirm {
+    float: right;
+  }
+
+  &__title {
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__columns {
+    display: flex;
+    position: relative;
+  }
+
+  &-column {
+    flex: 1;
+    overflow: hidden;
+    @include font-dpr(14px);
+    position: relative;
+    text-align: center;
+
+    ul {
+      box-sizing: border-box;
+    }
+
+    li {
+      padding: 0 0.32rem;
+      color: $gray-darker;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      &--selected {
+        color: $black;
+      }
+      &--disabled {
+        opacity: .3;
+      }
+    }
+
+  
+
+
+    &__frame {
+      top: 50%;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+      position: absolute;
+      pointer-events: none;
+      transform: translateY(-50%);
+    }
+  }
+}

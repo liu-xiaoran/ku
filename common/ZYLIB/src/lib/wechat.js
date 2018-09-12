@@ -11,7 +11,7 @@ var extend = function(des,src) {
 
 var Wechat = function(config) {
 	this.config = {
-		apiURL:'/actives1/public/jsapiTicket',
+		apiURL:'/jsapiTicket',
 		wxURL:'https://res.wx.qq.com/open/js/jweixin-1.2.0.js',
 		url:encodeURIComponent(location.href.split('#')[0]),
 		debug:false,
